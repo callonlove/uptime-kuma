@@ -98,6 +98,7 @@
                                         <option value="sqlserver">Microsoft SQL Server</option>
                                         <option value="mongodb">MongoDB</option>
                                         <option value="mysql">MySQL/MariaDB</option>
+                                        <option value="oracle">Oracle</option>
                                         <option value="postgres">PostgreSQL</option>
                                         <option value="radius">Radius</option>
                                         <option value="redis">Redis</option>
@@ -1158,12 +1159,13 @@
                                 </div>
                             </template>
 
-                            <!-- SQL Server / PostgreSQL / MySQL / Redis / MongoDB -->
+                            <!-- SQL Server / PostgreSQL / MySQL / Oracle / Redis / MongoDB -->
                             <template
                                 v-if="
                                     monitor.type === 'sqlserver' ||
                                     monitor.type === 'postgres' ||
                                     monitor.type === 'mysql' ||
+                                    monitor.type === 'oracle' ||
                                     monitor.type === 'redis' ||
                                     monitor.type === 'mongodb'
                                 "
@@ -1273,12 +1275,13 @@
                                 </div>
                             </template>
 
-                            <!-- SQL Server / PostgreSQL / MySQL -->
+                            <!-- SQL Server / PostgreSQL / MySQL / Oracle -->
                             <template
                                 v-if="
                                     monitor.type === 'sqlserver' ||
                                     monitor.type === 'postgres' ||
-                                    monitor.type === 'mysql'
+                                    monitor.type === 'mysql' ||
+                                    monitor.type === 'oracle'
                                 "
                             >
                                 <div class="my-3">
@@ -2941,6 +2944,7 @@ export default {
                     "Server=<hostname>,<port>;Database=<your database>;User Id=<your user id>;Password=<your password>;Encrypt=<true/false>;TrustServerCertificate=<Yes/No>;Connection Timeout=<int>",
                 postgres: "postgres://username:password@host:port/database",
                 mysql: "mysql://username:password@host:port/database",
+                oracle: "oracle://username:password@host:1521/service_name",
                 redis: "redis://user:password@host:port",
                 mongodb: "mongodb://username:password@host:port/database",
             },
